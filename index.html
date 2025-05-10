@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexoPay Device Sync</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(270deg, #7F00FF, #00BFFF);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+  </style>
+</head>
+<body class="text-gray-800">
+  <header class="bg-white bg-opacity-80 shadow p-4 flex items-center justify-between backdrop-blur">
+    <h1 class="text-2xl font-bold text-purple-700">NexoPay</h1>
+    <p class="text-sm text-gray-700">Securely Sync Your Device</p>
+  </header>
+
+  <main class="max-w-xl mx-auto p-6 mt-8 bg-white bg-opacity-90 rounded-xl shadow-md backdrop-blur">
+    <h2 class="text-xl font-semibold mb-4">Device Configuration</h2>
+    <p class="mb-6 text-gray-600">Please provide the following details to sync your NexoPay device.</p>
+
+    <form id="configForm" class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium">Business Name</label>
+        <input type="text" class="w-full border border-gray-300 rounded p-2" required>
+      </div>
+      <div>
+        <label class="block text-sm font-medium">Email Address</label>
+        <input type="email" class="w-full border border-gray-300 rounded p-2" required>
+      </div>
+      <div>
+        <label class="block text-sm font-medium">Phone Number</label>
+        <input type="tel" class="w-full border border-gray-300 rounded p-2" required>
+      </div>
+      <div>
+        <label class="block text-sm font-medium">Business Location</label>
+        <input type="text" class="w-full border border-gray-300 rounded p-2" required>
+      </div>
+      <div>
+        <label class="block text-sm font-medium">Device Serial Number</label>
+        <input type="text" class="w-full border border-gray-300 rounded p-2" required>
+      </div>
+      <div>
+        <label class="block text-sm font-medium">Preferred Payment Methods</label>
+        <select class="w-full border border-gray-300 rounded p-2" multiple>
+          <option>Card</option>
+          <option>Bank Transfer</option>
+          <option>Mobile Money</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-sm font-medium">Business Logo</label>
+        <input type="file" class="w-full border border-gray-300 rounded p-2">
+      </div>
+
+      <button type="submit" class="w-full bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700">Sync Device</button>
+    </form>
+
+    <p id="successMessage" class="text-green-600 font-semibold mt-4 hidden">✔ Device successfully synced!</p>
+  </main>
+
+  <footer class="text-center text-sm text-white mt-12 p-4">
+    &copy; 2025 NexoPay. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('configForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('successMessage').classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
